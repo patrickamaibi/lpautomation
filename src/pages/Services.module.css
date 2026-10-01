@@ -1,0 +1,145 @@
+.introSection {
+  padding: 6rem 0 2rem;
+  background-color: var(--color-white);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.faqContainer {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.servicesList {
+  display: flex;
+  flex-direction: column;
+}
+
+.serviceBlock {
+  padding: 6rem 0;
+  background-color: var(--color-white);
+  position: relative;
+  z-index: 1;
+}
+
+.serviceBlock.even {
+  background-color: var(--color-light-gray);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .serviceBlock.even .contentCol {
+    order: 2;
+  }
+  .serviceBlock.even .imageCol {
+    order: 1;
+  }
+}
+
+.iconWrapper {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background-color: rgba(245, 166, 35, 0.1);
+  color: var(--color-amber);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 3vw, 2.5rem);
+  color: var(--color-navy);
+  margin-bottom: 1rem;
+}
+
+.summary {
+  font-size: 1.25rem;
+  color: var(--color-amber);
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+}
+
+.overview {
+  color: var(--color-text-gray);
+  line-height: 1.7;
+  font-size: 1.125rem;
+  margin-bottom: 2rem;
+}
+
+.featuresList {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2.5rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .featuresList {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.featuresList li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  color: var(--color-navy);
+  font-weight: 500;
+}
+
+.checkIcon {
+  color: var(--color-amber);
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--color-navy);
+  color: var(--color-white);
+  padding: 1rem 2rem;
+  border-radius: 4px;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.btn:hover {
+  background-color: var(--color-deep-navy);
+}
+
+.imageCol {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 1rem 0;
+}
+
+.faqSection {
+  padding: 6rem 0;
+  background-color: var(--color-white);
+}

@@ -1,0 +1,18 @@
+:root {
+  /* Brand Colors */
+  --color-navy: #1B2D3E;
+  --color-deep-navy: #0F1C29;
+  --color-amber: #F5A623;
+  --color-gold: #E8961A;
+  --color-white: #FFFFFF;
+  --color-light-gray: #F3F5F7;
+  --color-text-gray: #5B6772;
+
+  /* Typography */
+  --font-heading: 'Montserrat', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  
+  /* Easing */
+  --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+  --ease-hero-entrance: cubic-bezier(0.22, 1, 0.36, 1);
+}

@@ -27,6 +27,14 @@
   margin: 0 auto 1.75rem;
 }
 
+.project,
+.medium {
+  width: 100%;
+  max-width: 320px;
+  aspect-ratio: 1;
+  margin: 0 auto;
+}
+
 .large {
   width: 100%;
   max-width: 420px;

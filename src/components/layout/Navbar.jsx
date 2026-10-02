@@ -28,12 +28,12 @@ export const Navbar = () => {
     <>
       <div className={styles.utilityBar}>
         <div className={styles.utilityContainer}>
-          <div className={styles.utilityItem}>
+          <a href={`tel:${siteData.phone.replace(/[^0-9+]/g, '')}`} className={styles.utilityItem}>
             <MdPhone /> <span>{siteData.phone}</span>
-          </div>
-          <div className={styles.utilityItem}>
+          </a>
+          <a href={`mailto:${siteData.email}`} className={styles.utilityItem}>
             <MdEmail /> <span>{siteData.email}</span>
-          </div>
+          </a>
           <div className={styles.utilityItem}>
             <MdAccessTime /> <span>{siteData.workingHours}</span>
           </div>
@@ -43,7 +43,7 @@ export const Navbar = () => {
       <header className={navClass}>
         <div className={styles.container}>
           <Link to="/" className={styles.logo}>
-            <img src="/logo.png" alt="LP Power & Automation" className={styles.logoImage} />
+            <img src="/logo1.png" alt="LP Power & Automation" className={styles.logoImage} />
           </Link>
 
           <nav className={styles.desktopNav}>
@@ -86,7 +86,7 @@ export const Navbar = () => {
             transition={{ type: 'tween', duration: 0.3 }}
           >
             <div className={styles.mobileHeader}>
-              <img src="/logo.png" alt="Logo" className={styles.logoImage} />
+              <img src="/logo1.png" alt="LP Power & Automation" className={styles.logoImage} />
               <button 
                 className={styles.closeBtn} 
                 onClick={() => setMobileMenuOpen(false)}

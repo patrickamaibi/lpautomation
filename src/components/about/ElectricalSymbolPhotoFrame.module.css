@@ -1,0 +1,163 @@
+/* ==========================================================================
+   ElectricalSymbolPhotoFrame
+   IEC 60617 / IEEE 315 Contactor Relay & Power Node Symbol Frame
+   ========================================================================== */
+
+.frameWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  user-select: none;
+  perspective: 1200px;
+  transform: perspective(1000px) rotateY(2deg) rotateX(1.5deg);
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.frameWrapper:hover {
+  transform: perspective(1000px) rotateY(0deg) rotateX(0deg) scale(1.015);
+}
+
+/* Ambient Electrical Flux Glow */
+.ambientFlux {
+  position: absolute;
+  inset: -14px;
+  border-radius: 20px;
+  background: radial-gradient(ellipse at center, rgba(245, 166, 35, 0.22) 0%, rgba(245, 166, 35, 0) 72%);
+  opacity: 0.55;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  pointer-events: none;
+}
+
+.ambientFluxActive {
+  opacity: 0.95;
+  transform: scale(1.06);
+}
+
+/* Hexagonal Power Symbol Aperture */
+.symbolViewport {
+  position: absolute;
+  inset: 12px;
+  clip-path: polygon(
+    17.5% 5.3%,
+    82.5% 5.3%,
+    96% 50%,
+    82.5% 94.7%,
+    17.5% 94.7%,
+    4% 50%
+  );
+  overflow: hidden;
+  background-color: var(--color-deep-navy);
+  box-shadow: 0 16px 40px rgba(15, 28, 41, 0.25);
+}
+
+.photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transform: scale(1);
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s ease;
+}
+
+.photoHovered {
+  transform: scale(1.06);
+  filter: contrast(1.05) brightness(1.03);
+}
+
+/* Inner Vignette & Metallic Bezel Accent */
+.innerBezel {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  box-shadow: inset 0 0 28px rgba(15, 28, 41, 0.65);
+  border: 1px solid rgba(245, 166, 35, 0.4);
+}
+
+/* SVG Schematic Layer */
+.schematicSvg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+  overflow: visible;
+  filter: drop-shadow(0 6px 16px rgba(15, 28, 41, 0.35));
+}
+
+/* Hexagonal Perimeter Power Flow Pulse */
+.hexFlow {
+  stroke-dasharray: 120 360;
+  animation: hexCircuitFlow 4.2s linear infinite;
+}
+
+.hexFlowFast {
+  animation-duration: 1.8s;
+}
+
+@keyframes hexCircuitFlow {
+  from {
+    stroke-dashoffset: 960;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Silkscreen Terminal Typography */
+.terminalLabel {
+  font-family: var(--font-heading), monospace;
+  font-size: 8.5px;
+  font-weight: 700;
+  fill: rgba(245, 166, 35, 0.95);
+  letter-spacing: 0.5px;
+  user-select: none;
+}
+
+.headerLabel {
+  font-family: var(--font-heading), monospace;
+  font-size: 7.5px;
+  font-weight: 700;
+  fill: var(--color-navy);
+  letter-spacing: 1px;
+  user-select: none;
+}
+
+.coilLabel {
+  font-family: var(--font-heading), monospace;
+  font-size: 7.5px;
+  font-weight: 700;
+  fill: var(--color-amber);
+  user-select: none;
+}
+
+.circuitSubLabel {
+  font-family: monospace;
+  font-size: 7px;
+  font-weight: 600;
+  fill: rgba(27, 45, 62, 0.55);
+  user-select: none;
+}
+
+@media (max-width: 640px) {
+  .frameWrapper,
+  .frameWrapper:hover {
+    transform: none;
+  }
+  .terminalLabel {
+    font-size: 7px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .frameWrapper,
+  .frameWrapper:hover {
+    transform: none;
+  }
+  .hexFlow {
+    animation: none;
+  }
+  .photo {
+    transition: none;
+  }
+}

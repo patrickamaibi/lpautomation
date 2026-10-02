@@ -23,7 +23,7 @@ export const GearPhotoFrame = ({
 }) => {
   const [isHovered, setIsHovered] = useState(false);
   const cleanId = String(serviceId).replace(/[^a-zA-Z0-9_-]/g, '-');
-  const isLarge = size === 'large';
+  const isLarge = size === 'large' || size === 'project' || size === 'medium';
 
   const frameBody = (
     <div

@@ -4,7 +4,10 @@ import { siteData } from '../../data/site';
 
 export const WhatsAppButton = () => {
   const prefersReducedMotion = useReducedMotion();
-  const phone = siteData.phone.replace(/[^0-9]/g, '');
+  let phone = siteData.phone.replace(/[^0-9]/g, '');
+  if (phone.startsWith('0')) {
+    phone = '234' + phone.slice(1);
+  }
   const message = encodeURIComponent(siteData.whatsappMessage);
   
   const pulseVariant = {

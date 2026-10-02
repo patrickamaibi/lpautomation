@@ -1,0 +1,229 @@
+/* ==========================================================================
+   Projects Page Styles
+   Clean engineering aesthetics, interactive category filters, and gear-framed cards
+   ========================================================================== */
+
+.projectsSection {
+  padding: 5rem 0 6rem;
+  background-color: var(--color-white);
+  position: relative;
+  z-index: 1;
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Category Filter Bar */
+.filterBar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 3.5rem;
+}
+
+.filterBtn {
+  font-family: var(--font-heading);
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: 0.65rem 1.35rem;
+  border-radius: 9999px;
+  background: var(--color-light-gray);
+  color: var(--color-navy);
+  border: 1px solid rgba(27, 45, 62, 0.08);
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  white-space: nowrap;
+}
+
+.filterBtn:hover {
+  background: rgba(245, 166, 35, 0.12);
+  border-color: rgba(245, 166, 35, 0.5);
+  color: var(--color-deep-navy);
+}
+
+.filterActive {
+  background: var(--color-deep-navy) !important;
+  color: var(--color-amber) !important;
+  border-color: var(--color-amber) !important;
+  box-shadow: 0 4px 16px rgba(15, 28, 41, 0.2);
+}
+
+/* Projects Card Grid */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  margin-bottom: 0;
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1200px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3.5rem;
+  }
+}
+
+/* Project Card */
+.card {
+  background: var(--color-white);
+  border-radius: 12px;
+  border: 1px solid rgba(27, 45, 62, 0.08);
+  box-shadow: 0 4px 20px rgba(15, 28, 41, 0.06);
+  padding: 2.25rem;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 36px rgba(15, 28, 41, 0.12);
+  border-color: rgba(245, 166, 35, 0.5);
+}
+
+/* Gear Frame Wrapper Inside Card */
+.gearWrapper {
+  width: 100%;
+  padding: 1rem 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at center, rgba(243, 245, 247, 0.8) 0%, rgba(255, 255, 255, 0) 70%);
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+}
+
+/* Card Content */
+.cardMeta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.categoryBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--color-amber);
+  background: rgba(245, 166, 35, 0.12);
+  padding: 0.35rem 0.85rem;
+  border-radius: 4px;
+}
+
+.year {
+  font-family: var(--font-heading);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--color-text-gray);
+}
+
+.cardTitle {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--color-navy);
+  line-height: 1.3;
+  margin: 0 0 0.5rem;
+  transition: color 0.2s ease;
+}
+
+.cardTitle a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.cardTitle a:hover {
+  color: var(--color-amber);
+}
+
+.location {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.875rem;
+  color: var(--color-text-gray);
+  margin-bottom: 1rem;
+}
+
+.locIcon {
+  color: var(--color-amber);
+  font-size: 1rem;
+}
+
+.summary {
+  font-size: 0.95rem;
+  color: var(--color-text-gray);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+/* Scope Pills */
+.scopeList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.75rem;
+  padding: 0;
+  list-style: none;
+}
+
+.scopeItem {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--color-navy);
+  background: var(--color-light-gray);
+  padding: 0.3rem 0.65rem;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.checkIcon {
+  color: var(--color-amber);
+}
+
+/* Card Action Button */
+.viewBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 0.85rem 1.5rem;
+  border-radius: 4px;
+  background: var(--color-navy);
+  color: var(--color-white);
+  text-decoration: none;
+  transition: all 0.25s ease;
+  width: 100%;
+}
+
+.viewBtn:hover {
+  background: var(--color-amber);
+  color: var(--color-deep-navy);
+  transform: translateY(-2px);
+}

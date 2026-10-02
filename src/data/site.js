@@ -1,7 +1,7 @@
 export const siteData = {
   name: "LP Power & Automation",
   description: "Professional electrical installation, automation and control engineering, solar and smart home solutions.",
-  phone: "+234 800 000 0000", // placeholder
+  phone: "+234 809 119 2238",
   email: "info@lppowerandautomation.com", // placeholder
   address: "123 Engineering Way, Lagos, Nigeria", // placeholder
   workingHours: "Mon - Fri: 8:00 AM - 5:00 PM",

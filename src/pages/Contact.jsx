@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { MdPhone, MdEmail, MdLocationOn } from 'react-icons/md';
 import { siteData } from '../data/site';
+import { ContactHero } from '../components/contact/ContactHero';
 import { SectionHeading } from '../components/ui/SectionHeading';
 import styles from './Contact.module.css';
 
@@ -21,22 +22,21 @@ export default function Contact() {
         <title>Contact Us | {siteData.name}</title>
       </Helmet>
 
-      <div className={styles.pageHeader}>
-        <div className={styles.container}>
-          <SectionHeading 
-            eyebrow="Get In Touch"
-            title="Contact Us"
-            description="Request a free quote or schedule a consultation with our engineering team."
-          />
-        </div>
-      </div>
+      <ContactHero />
 
       <section className={styles.contactSection}>
         <div className={styles.container}>
+          <SectionHeading 
+            eyebrow="Get In Touch"
+            title="Let's Discuss Your Project"
+            description="Request a free quote, discuss technical specifications, or schedule an on-site consultation with our engineering team."
+          />
+
           <div className={styles.grid}>
             
             <div className={styles.formCol}>
               <form className={styles.form} onSubmit={handleSubmit}>
+                <h3 className={styles.formTitle}>Send Us a Message</h3>
                 <div className={styles.formGroup}>
                   <label htmlFor="name">Full Name *</label>
                   <input type="text" id="name" required />
@@ -85,14 +85,18 @@ export default function Contact() {
                     <MdPhone className={styles.icon} />
                     <div>
                       <strong>Phone</strong>
-                      <span>{siteData.phone}</span>
+                      <a href={`tel:${siteData.phone.replace(/[^0-9+]/g, '')}`} style={{ color: 'inherit', textDecoration: 'none' }}>
+                        {siteData.phone}
+                      </a>
                     </div>
                   </li>
                   <li>
                     <MdEmail className={styles.icon} />
                     <div>
                       <strong>Email</strong>
-                      <span>{siteData.email}</span>
+                      <a href={`mailto:${siteData.email}`} style={{ color: 'inherit', textDecoration: 'none' }}>
+                        {siteData.email}
+                      </a>
                     </div>
                   </li>
                   <li>

@@ -34,8 +34,18 @@ export const Footer = () => {
         <div className={styles.col}>
           <h4 className={styles.heading}>Contact Us</h4>
           <ul className={styles.contactList}>
-            <li><MdPhone className={styles.icon} /> <span>{siteData.phone}</span></li>
-            <li><MdEmail className={styles.icon} /> <span>{siteData.email}</span></li>
+            <li>
+              <MdPhone className={styles.icon} />
+              <a href={`tel:${siteData.phone.replace(/[^0-9+]/g, '')}`} className={styles.link}>
+                {siteData.phone}
+              </a>
+            </li>
+            <li>
+              <MdEmail className={styles.icon} />
+              <a href={`mailto:${siteData.email}`} className={styles.link}>
+                {siteData.email}
+              </a>
+            </li>
             <li><MdLocationOn className={styles.icon} /> <span>{siteData.address}</span></li>
           </ul>
         </div>

@@ -26,14 +26,9 @@
 
 .imageCol {
   width: 100%;
-}
-
-.storyImage {
-  width: 100%;
-  aspect-ratio: 4/5;
-  object-fit: cover;
-  border-radius: 12px;
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .text {

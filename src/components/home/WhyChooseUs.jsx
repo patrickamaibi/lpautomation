@@ -1,6 +1,7 @@
 import { m, useReducedMotion } from 'framer-motion';
 import { MdCheckCircleOutline } from 'react-icons/md';
 import { SectionHeading } from '../ui/SectionHeading';
+import { CircuitPhotoFrame } from './CircuitPhotoFrame';
 import styles from './WhyChooseUs.module.css';
 
 const reasons = [
@@ -33,11 +34,9 @@ export const WhyChooseUs = () => {
       <div className={styles.container}>
         <div className={styles.grid}>
           <div className={styles.imageCol}>
-            <img 
+            <CircuitPhotoFrame 
               src="/images/about/why-choose-us.jpg" 
-              alt="Engineers testing electrical connections on a commercial project"
-              className={styles.whyImage}
-              loading="lazy"
+              alt="Certified engineers inspecting automated industrial PLC electrical cabinets with robotic automation"
             />
           </div>
           

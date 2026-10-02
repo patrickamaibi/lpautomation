@@ -1,0 +1,183 @@
+/* ==========================================================================
+   CircuitPhotoFrame
+   Industrial PCB electrical circuit frame with chamfered geometry & flow
+   ========================================================================== */
+
+.frameWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  user-select: none;
+  perspective: 1200px;
+  transform: perspective(1000px) rotateY(-2.5deg) rotateX(1.5deg);
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.frameWrapper:hover {
+  transform: perspective(1000px) rotateY(0deg) rotateX(0deg) scale(1.015);
+}
+
+/* Ambient Electrical Backglow */
+.ambientGlow {
+  position: absolute;
+  inset: -14px;
+  border-radius: 20px;
+  background: radial-gradient(ellipse at center, rgba(245, 166, 35, 0.22) 0%, rgba(245, 166, 35, 0) 72%);
+  opacity: 0.55;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  pointer-events: none;
+}
+
+.ambientGlowActive {
+  opacity: 0.95;
+  transform: scale(1.06);
+}
+
+/* Chamfered PCB Image Viewport */
+.imageViewport {
+  position: absolute;
+  inset: 14px;
+  clip-path: polygon(
+    0 24px,
+    24px 0,
+    calc(100% - 44px) 0,
+    100% 44px,
+    100% calc(100% - 24px),
+    calc(100% - 24px) 100%,
+    44px 100%,
+    0 calc(100% - 44px)
+  );
+  overflow: hidden;
+  background-color: var(--color-deep-navy);
+  box-shadow: 0 16px 40px rgba(15, 28, 41, 0.25);
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transform: scale(1);
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s ease;
+}
+
+.imageHovered {
+  transform: scale(1.06);
+  filter: contrast(1.05) brightness(1.03);
+}
+
+/* Inner Edge Vignette & Metallic Chamfer Border */
+.vignetteOverlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  box-shadow: inset 0 0 24px rgba(15, 28, 41, 0.65);
+  border: 1px solid rgba(245, 166, 35, 0.4);
+}
+
+/* SVG Schematic Layer */
+.circuitSvg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+  filter: drop-shadow(0 6px 16px rgba(15, 28, 41, 0.35));
+}
+
+/* Current Pulse Animation */
+.flowingTrace {
+  stroke-dasharray: 90 260;
+  animation: circuitFlow 3.8s linear infinite;
+}
+
+.flowingTraceReverse {
+  stroke-dasharray: 90 260;
+  animation: circuitFlowReverse 4.2s linear infinite;
+}
+
+.flowingFast {
+  animation-duration: 1.8s;
+}
+
+@keyframes circuitFlow {
+  from {
+    stroke-dashoffset: 700;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes circuitFlowReverse {
+  from {
+    stroke-dashoffset: -700;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Engineering Silkscreen Annotations */
+.silkscreenText {
+  font-family: var(--font-heading), monospace;
+  font-size: 8.5px;
+  font-weight: 700;
+  fill: rgba(245, 166, 35, 0.9);
+  letter-spacing: 1px;
+  user-select: none;
+}
+
+.cadCrosses {
+  pointer-events: none;
+}
+
+/* Technical Specification Tag (Top-Left) */
+.techTag {
+  position: absolute;
+  top: 24px;
+  left: 28px;
+  z-index: 3;
+  font-family: var(--font-heading), monospace;
+  font-size: 0.625rem;
+  font-weight: 700;
+  color: var(--color-amber);
+  background: rgba(15, 28, 41, 0.85);
+  border-left: 2.5px solid var(--color-amber);
+  padding: 3px 8px;
+  letter-spacing: 1px;
+  border-radius: 0 3px 3px 0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+}
+
+@media (max-width: 640px) {
+  .frameWrapper {
+    transform: none;
+  }
+  .frameWrapper:hover {
+    transform: none;
+  }
+  .silkscreenText {
+    font-size: 7px;
+  }
+  .techTag {
+    font-size: 0.5625rem;
+    top: 20px;
+    left: 20px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .frameWrapper,
+  .frameWrapper:hover {
+    transform: none;
+  }
+  .flowingTrace,
+  .flowingTraceReverse {
+    animation: none;
+  }
+  .image {
+    transition: none;
+  }
+}

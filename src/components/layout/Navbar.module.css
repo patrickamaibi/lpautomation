@@ -26,6 +26,14 @@
   align-items: center;
   gap: 0.25rem;
   opacity: 0.8;
+  color: inherit;
+  text-decoration: none;
+  transition: opacity 0.2s, color 0.2s;
+}
+
+.utilityItem:hover {
+  opacity: 1;
+  color: var(--color-amber);
 }
 
 .navbar {

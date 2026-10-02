@@ -2,6 +2,7 @@ import { Helmet } from 'react-helmet-async';
 import { m, useReducedMotion } from 'framer-motion';
 import { siteData } from '../data/site';
 import { AboutHero } from '../components/about/AboutHero';
+import { ElectricalSymbolPhotoFrame } from '../components/about/ElectricalSymbolPhotoFrame';
 import { SectionHeading } from '../components/ui/SectionHeading';
 import { CTABanner } from '../components/ui/CTABanner';
 import styles from './About.module.css';
@@ -29,11 +30,9 @@ export default function About() {
         <div className={styles.container}>
           <div className={styles.grid}>
             <div className={styles.imageCol}>
-              <img 
+              <ElectricalSymbolPhotoFrame 
                 src="/images/about/team.jpg" 
                 alt="LP Power & Automation engineering team reviewing blueprints on site"
-                className={styles.storyImage}
-                loading="lazy"
               />
             </div>
             <div className={styles.contentCol}>
